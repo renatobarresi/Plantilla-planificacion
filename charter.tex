@@ -27,8 +27,8 @@ codirector, % Uncomment to add a codirector to the title page
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Javier Marin}
+\empresaCliente{Tech Enterprise S.A}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -38,8 +38,8 @@ codirector, % Uncomment to add a codirector to the title page
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{30 de abril de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2021} 	%Fecha de final de cursada de GdP
+\fechaINICIO{01 de marzo de 2022}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{19 de abril de 2022} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
 
 
@@ -69,7 +69,7 @@ codirector, % Uncomment to add a codirector to the title page
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
+1      & Se completa hasta el punto 5 inclusive                 & 15/03/2022 \\ \hline
 %2      & Se completa hasta el punto 7 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -92,7 +92,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementacion de un prototipo de data logger para mediciones meteorologicas, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$1000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,38 +115,29 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-
 \begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
+El cambio climatico es una de las mayores problematicas que enfrenta la humanidad en el siglo 21, se estima que 800 millones de personas son vulnerables a los efectos negativos que puede generar esta, es por eso que se deben de generar politicas enfocadas a combatir los perjuicios que conllevan. Estas politicas deben de estar basadas en datos y mediciones cientificas, las cuales se obtienen en gran parte por medio de estaciones meteorologicas automaticas.   
 
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+Una estacion meteorologica automatica se encarga de tomar mediciones meteorologicas, procesarlas, guardarlas y transmitirlas. El elemento principal de esta es un data logger, que es un computador con distintos perifericos para cumplir las funciones requeridas por la estacion. 
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+En Paraguay, el mercado de estaciones meteorologicas automaticas esta dominado por productos del extranjero, el cual tienen costo muy elevado para el presupuesto que manejan las entidades publicas y privadas, tambien, el casi nulo nivel de customizacion que ofrecen, es un impedimento para poder customizar en base a las posibilidades del cliente.
 
-\begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Actualmente, Tech Enterpise S.A cuenta con data loggers propios, basados en microcontroladores de 8 bits, como el atmega328p y atmega2560. La baja cantidad de perifericos, velocidad, memoria RAM y FLASH que cuentan estos microcontroladores, limita las funcionalidades y escalabilidad del codigo del data logger. Es por esto que la empresa busca migrar a microcontroladores de 32bits, como el STM32F767ZI, que cuenta con una frecuencia maxima de 216MHz, memoria flash de 2Mbytes y memoria SRAM de 512Kbytes. Tambien, cuenta con interfaz MAC, que permite utilizar integrados PHY para ethernet.   
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la Figura 1 se muestra el diagrama en bloques del sistema. El microcontrolador se encarga de comunicarse con distintos periféricos, como la memoria SD, memoria Flash, ADC, etc. Además de poder comunicarse con dichos componentes, debe de ser capaz de actuar como cliente FTP y HTTP.
 
 %\vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.9\textwidth]{./Figuras/diagramaDeConexion.jpeg}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
 \end{consigna}
 
 
@@ -175,15 +166,15 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& Director ejecutivo       	\\ \hline
+Impulsor      &      Jose Flecha             &              	&        	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores &     -              &  -            	&   -     	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
 Equipo        & miembro1 \newline 
 				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Opositores    &        Jack  Johnson          &      Campbell Scientific        	&   Sales manager     	\\ \hline
+Usuario final & Fernando Pio Barrios   & Direccion de Meteorologia e Hidrologia              	& Director       	\\ \hline
 \end{tabularx}
 \end{table}
 
@@ -210,23 +201,23 @@ Por ejemplo:
 \label{sec:proposito}
 
 \begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+El proposito de este proyecto es disenar e implementar el prototipo de un data logger basado en un microcontrolador de 32 bits, que permita comunicarse con sensores meteorologicos, procesar los datos, almacenar la informacion a una memoria SD, y trasmitir a un servidor FTP.
 \end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
 \begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+El proyecto incluye los siguientes puntos importantes:
+\begin{itemize}
+\item Diseno, programacion e implementacion de un sistema embebido que sea capaz de comunicarse con distintos sensores, procesar los datos, guardar y transmitirlos por internet.
+\item Diseno de la arquitectura del sistema embebido
+\item Testeo de placas y perifericos, verificacion funcional.
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
+Queda excluido del alcance del proyecto:
+\item Desarrollo de un cargador solar
+\item Testeo de mas de 1 semana del sistema
+\end{itemize}
 \end{consigna}
 
 
@@ -234,14 +225,18 @@ Explicitar además todo lo que no quede incluido (``El presente proyecto no incl
 \label{sec:supuestos}
 
 \begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item Se contara con una placa NUCLEO-F767ZI.
+	\item Se podra contar con los insumos necesarios en tiempo y forma.
+	\item Se contara con las instalaciones disponibles para las pruebas pertinentes.
+	\item Se dispondra del tiempo necesario para el desarrollo del proyecto.
+	\item Se contara con sensores meteorologicos para realizar las mediciones.
+	\item Se contara con modem cellular para conexiones GPRS/GSM
+	\item Se cuenta con toda la informacion tecnica de sensores meteorolgocios, modems celulares, microcontroladores, ethernet, etc.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{6. Requerimientos}
