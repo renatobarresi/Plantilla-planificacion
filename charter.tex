@@ -92,7 +92,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementacion de un prototipo de data logger para mediciones meteorologicas, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$1000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de data logger para mediciones meteorológicas, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$ 1000 US, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,48 +115,33 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+El cambio climático es una de las mayores problemáticas que enfrenta la humanidad en el siglo 21, se estima que 800 millones de personas son vulnerables a los efectos negativos que puede generar este, es por eso que se deben generar políticas enfocadas a luchar y contrarrestar los perjuicios que pueden ser causados por el cambio climático. Estas políticas deben estar basadas en datos y mediciones científicas, las cuales se obtienen en gran parte por medio de estaciones meteorológicas automáticas.   
 
-El cambio climatico es una de las mayores problematicas que enfrenta la humanidad en el siglo 21, se estima que 800 millones de personas son vulnerables a los efectos negativos que puede generar esta, es por eso que se deben de generar politicas enfocadas a combatir los perjuicios que conllevan. Estas politicas deben de estar basadas en datos y mediciones cientificas, las cuales se obtienen en gran parte por medio de estaciones meteorologicas automaticas.   
+Una estación meteorológica automática se encarga de tomar mediciones meteorológicas, procesarlas, guardarlas y transmitirlas. El elemento principal de esta es un data logger, que es un computador con distintos periféricos para cumplir las funciones requeridas por la estación. 
 
-Una estacion meteorologica automatica se encarga de tomar mediciones meteorologicas, procesarlas, guardarlas y transmitirlas. El elemento principal de esta es un data logger, que es un computador con distintos perifericos para cumplir las funciones requeridas por la estacion. 
+En Paraguay, el mercado de estaciones meteorológicas automáticas esta dominado por productos del extranjero, las que tienen costo muy elevado para el presupuesto que manejan las entidades publicas y privadas, también, el bajo nivel de customización que ofrecen, es un impedimento para poder modificar a la estación en base a las posibilidades del cliente.
 
-En Paraguay, el mercado de estaciones meteorologicas automaticas esta dominado por productos del extranjero, el cual tienen costo muy elevado para el presupuesto que manejan las entidades publicas y privadas, tambien, el casi nulo nivel de customizacion que ofrecen, es un impedimento para poder customizar en base a las posibilidades del cliente.
+Actualmente, Tech Enterpise S.A cuenta con data loggers propios, basados en microcontroladores de 8 bits, como el atmega328p y atmega2560. La baja cantidad de periféricos, velocidad, memoria RAM y FLASH con los que cuentan estos microcontroladores, limita las funcionalidades y escalabilidad del código del data logger. Es por esto que la empresa busca migrar a microcontroladores de 32bits, como el STM32F767ZI, que cuenta con una frecuencia máxima de 216MHz, memoria FLASH de 2 Mbytes y memoria SRAM de 512 Kbytes. También, cuenta con interfaz MAC, que permite utilizar integrados PHY para Ethernet.   
 
-Actualmente, Tech Enterpise S.A cuenta con data loggers propios, basados en microcontroladores de 8 bits, como el atmega328p y atmega2560. La baja cantidad de perifericos, velocidad, memoria RAM y FLASH que cuentan estos microcontroladores, limita las funcionalidades y escalabilidad del codigo del data logger. Es por esto que la empresa busca migrar a microcontroladores de 32bits, como el STM32F767ZI, que cuenta con una frecuencia maxima de 216MHz, memoria flash de 2Mbytes y memoria SRAM de 512Kbytes. Tambien, cuenta con interfaz MAC, que permite utilizar integrados PHY para ethernet.   
+En lo que respecta al presente trabajo, se propone diseñar una solución basada en el mencionado microcontrolador, que sea capaz de comunicarse con sensores utilizando el protocolo de comunicación SDI-12, con una memoria FLASH y memoria SD y que pueda transmitir la información por medio de protocolos de capa 2 como el PPP y ethernet.
 
-En la Figura 1 se muestra el diagrama en bloques del sistema. El microcontrolador se encarga de comunicarse con distintos periféricos, como la memoria SD, memoria Flash, ADC, etc. Además de poder comunicarse con dichos componentes, debe de ser capaz de actuar como cliente FTP y HTTP.
+En la figura 1 se muestra el diagrama en bloques del sistema. El microcontrolador se encarga de comunicarse con distintos periféricos, como la memoria SD, memoria Flash, ADC, etc. Además de poder comunicarse con dichos componentes, debe de ser capaz de actuar como cliente FTP y HTTP.
 
 %\vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
 \includegraphics[width=.9\textwidth]{./Figuras/diagramaDeConexion.jpeg}
-\caption{Diagrama en bloques del sistema}
+\caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-\end{consigna}
 
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -165,79 +150,61 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
+Auspiciante   &     Jose Flecha              &     Data system S.A         	&       Director ejecutivo  	\\ \hline
 Cliente       & \clientename      &\empclientename	& Director ejecutivo       	\\ \hline
-Impulsor      &      Jose Flecha             &              	&        	\\ \hline
+Impulsor      & Julio Mendez    &  CONACYT    	&  Director PROINOVA    	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &     -              &  -            	&   -     	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
 Opositores    &        Jack  Johnson          &      Campbell Scientific        	&   Sales manager     	\\ \hline
-Usuario final & Fernando Pio Barrios   & Direccion de Meteorologia e Hidrologia              	& Director       	\\ \hline
+Usuario final & Fernando Pio Barrios   & Dirección de Meteorología e Hidrología              	& Director       	\\ \hline
 \end{tabularx}
 \end{table}
-
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
-\begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
-\end{itemize}
-
-\end{consigna}
-
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-El proposito de este proyecto es disenar e implementar el prototipo de un data logger basado en un microcontrolador de 32 bits, que permita comunicarse con sensores meteorologicos, procesar los datos, almacenar la informacion a una memoria SD, y trasmitir a un servidor FTP.
-\end{consigna}
+El propósito de este proyecto es diseñar e implementar el prototipo de un data logger basado en un microcontrolador de 32 bits que permita comunicarse con sensores meteorológicos, procesar los datos, almacenar la información a una memoria SD y trasmitir a un servidor FTP.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-El proyecto incluye los siguientes puntos importantes:
+El proyecto incluye los siguientes puntos:
 \begin{itemize}
-\item Diseno, programacion e implementacion de un sistema embebido que sea capaz de comunicarse con distintos sensores, procesar los datos, guardar y transmitirlos por internet.
-\item Diseno de la arquitectura del sistema embebido
-\item Testeo de placas y perifericos, verificacion funcional.
+\item Diseño, programación e implementación de un sistema embebido que sea capaz de comunicarse con distintos sensores, procesar los datos, guardar y transmitirlos por internet.
+\item Diseño de una biblioteca modular en C++, que permita comunicarse con sensores que utilizan el protocolo SDI-12.
+\item Diseño de una biblioteca modular en C++, que permita comunicarse con memorias de tipo FLASH.
+\item Diseño de la arquitectura del sistema embebido.
+\item Prototipo en protoboard del sistema embebido.
+\item Diseño de la placa de circuito impreso.
+\item Verificación funcional de la placa de circuito impreso.
+\end{itemize}
 
 Queda excluido del alcance del proyecto:
-\item Desarrollo de un cargador solar
-\item Testeo de mas de 1 semana del sistema
+\begin{itemize}
+\item Desarrollo de un cargador solar.
+\item Diseño de un RTOS.
+\item Diseño de un stack TCP/IP.
+\item Testeo de mas de una semana del sistema.
+\item Testeo de rangos de temperatura y humedad mínimos y máximos.
 \end{itemize}
-\end{consigna}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
+
 Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
 	\item Se contara con una placa NUCLEO-F767ZI.
-	\item Se podra contar con los insumos necesarios en tiempo y forma.
+	\item Se podrá contar con los insumos necesarios en tiempo y forma.
 	\item Se contara con las instalaciones disponibles para las pruebas pertinentes.
-	\item Se dispondra del tiempo necesario para el desarrollo del proyecto.
-	\item Se contara con sensores meteorologicos para realizar las mediciones.
-	\item Se contara con modem cellular para conexiones GPRS/GSM
-	\item Se cuenta con toda la informacion tecnica de sensores meteorolgocios, modems celulares, microcontroladores, ethernet, etc.
+	\item Se dispondrá del tiempo necesario para el desarrollo del proyecto.
+	\item Se contara con sensores meteorológicos para realizar las mediciones.
+	\item Se contara con módem cellular para conexiones GPRS/GSM.
+	\item Se cuenta con toda la información técnica de sensores meteorológicos, modems celulares, microcontroladores, ethernet, etc.
 \end{itemize}
-
-\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
