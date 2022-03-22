@@ -17,7 +17,7 @@ codirector, % Uncomment to add a codirector to the title page
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Renato Luis Barresi Armoa} 
+\autor{Ing. Renato Barresi} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
@@ -209,44 +209,56 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
-
 \begin{enumerate}
-	\item Requerimientos funcionales
+	\item Requerimientos de firmware.
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El proyecto sera desarrollado y mantenido mediante el control de versiones GIT. 
+			\item El proyecto sera desarrollado en lenguaje C, compilado con ARM GCC.
+			\item Se debera de desarrollar libreria de control del conversor analogico digital.
+			\item Se debera de desarrollar libreria de control de la memoria FLASH. 
+			\item Se debera de desarrollar libreria del protocolo SDI-12.
 		\end{enumerate}
-	\item Requerimientos de documentación
+	\item Requerimientos de documentación.
 		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
+			\item El ccodigo sera documentado con la herramienta Doxygen.
+			\item El ciclo de vida del proyecto sera respaldado por una memoria tecnica.
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimientos asociados con la arquitectura del sistema.
+		\begin{enumerate}
+		\item El data logger se debe de basar en el STM32F767ZI.
+		\item El STM32F767ZI se debe de comunicar con una memoria FLASH por medio del protocolo SPI.
+		\item El STM32F767ZI se debe de comunicar con una memoria SD, por medio del protocolo SPI.
+		\item El STM32F767ZI se debe de comunicar con un conversor analogico digital, por medio del protocolo I2C.
+		\item El sistema debe de contar con los converores de voltaje para el protocolo SDI-12.
+		\end{enumerate}
+	\item Requerimientos de la interfaz.
+		\begin{enumerate}
+		\item El sistema debe de contar con proteccion contra cortocircuitos, sobre voltaje y bajo voltaje. 
+		\item El sistema debe de funcionar con un rango de tension entre 7V y 24 VDC.
+		\item El sistema debe de contar con dos puertos RS-232.
+		\item El sistema debe de contar con un puerto Ethernet.
+		\item El sistema debe de contar con una interfaz SD.
+		\item El sistema debe de contar con un puerto micro USB.
+		\item El sistema debe de contar con borneras para conexion con los sensores.
+		\end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
+
+Roles: 
+\begin{itemize}
+	\item Usuario/a - Persona o entidad donde la informacion proveniente de la estacion sera destinada, 
+	\item Instalador/a - Es la persona encargada de la puesta en marcha de la estacion, 
+	\item Cliente - Es la persona que auspiciara el proyecto de la estacion
+\end{itemize}
+
+Ponderacion:
+	\begin{itemize}
+		\item Este puntaje esta dado por la relevancia que tiene la historia de usuario para el exito del proyecto definido en esta planificacion.
+		\item Se utilizara una escala de prioridad de 1, 2, y 4 puntos para las historias
+	\end{itemize}
 
 \begin{consigna}{red}
 Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
@@ -259,55 +271,52 @@ Se debe indicar explícitamente el criterio para calcular los \textit{story poin
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
-
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Informe final.
+	\item Manual de configuracion y puesta en marcha.
+	\item Diagrama de circuitos esquemáticos.
+	\item Código fuente del firmware.
 \end{itemize}
 
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Planificacion del proyecto (40hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Realizar el plan de proyecto (20 hs).
+	\item Redectar requisitos del firmware (20 hs).
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Investigacion preliminar (30 hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Investigar caracteristicas tecnicas de cada uno de los componentes a utilizar (10 hs)
+	\item Investigar librerias TCP/IP (10 hs).
+	\item Investigar sobre sistemas operativos de tiempo real (10 hs).
 	\end{enumerate}
-\item Grupo de tareas 3
+\item Desarrollo de firmware (200 hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+	\item Configuracion inicial del microcontrolador y sus distintos perifericos. 
+	\item Disenar algoritmo de configuracion de la estacion (30 hs).
+	\item Disenar libreria para control de memoria FLASH (40 hs).
+	\item Integrar liberia para control de memoria SD (10 hs).
+	\item Disenar libreria para comunicacion por medio del protocolo SDI-12 (40 hs).
+	\item Disenar libreria para control del conversor analogico digital (40 hs).
+	\item Disenar liberia para cliente FTP (40 hs).
+	\item Integracion de las distintas librerias (40 hs).
+	\end{enumerate}
+\item Validacion y documentacion (X hs).
+	\begin{enumerate}
+	\item Ejecutar esquema de pruebas (X hs).
+	
+	\end{enumerate}
+\item Elaboracion de presentacion final (X hs).
+	\begin{enumerate}
+	\item Redaccion del manuscripto fianl ( hs).
 	\end{enumerate}
 \end{enumerate}
 
 Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
-
-\end{consigna}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
