@@ -1,6 +1,6 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-codirector, % Uncomment to add a codirector to the title page
+%codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
@@ -20,11 +20,11 @@ codirector, % Uncomment to add a codirector to the title page
 \autor{Ing. Renato Barresi} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Esp. Ing. Pablo Zizzutti}
+\pertenenciaDirector{FIUBA} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-\pertenenciaCoDirector{FIUBA}
+\codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+\pertenenciaCoDirector{}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
 \cliente{Javier Marin}
@@ -70,12 +70,7 @@ codirector, % Uncomment to add a codirector to the title page
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                 & 15/03/2022 \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
-%4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
+2      & Se completa hasta el punto 9 inclusive y agregan correcciones & 27/03/2022\\ \hline
 \end{tabularx}
 \end{table}
 
@@ -92,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de data logger para mediciones meteorológicas, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$ 1000 US, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de computador que hará de interfaz con sensores meteorológicos y el internet, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$ 1000 US, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -121,17 +116,17 @@ Una estación meteorológica automática se encarga de tomar mediciones meteorol
 
 En Paraguay, el mercado de estaciones meteorológicas automáticas esta dominado por productos del extranjero, las que tienen costo muy elevado para el presupuesto que manejan las entidades publicas y privadas, también, el bajo nivel de customización que ofrecen, es un impedimento para poder modificar a la estación en base a las posibilidades del cliente.
 
-Actualmente, Tech Enterpise S.A cuenta con data loggers propios, basados en microcontroladores de 8 bits, como el atmega328p y atmega2560. La baja cantidad de periféricos, velocidad, memoria RAM y FLASH con los que cuentan estos microcontroladores, limita las funcionalidades y escalabilidad del código del data logger. Es por esto que la empresa busca migrar a microcontroladores de 32bits, como el STM32F767ZI, que cuenta con una frecuencia máxima de 216MHz, memoria FLASH de 2 Mbytes y memoria SRAM de 512 Kbytes. También, cuenta con interfaz MAC, que permite utilizar integrados PHY para Ethernet.   
+Actualmente, Tech Enterpise S.A cuenta con data loggers propios, basados en microcontroladores de 8 bits, como el atmega328p y atmega2560. La baja cantidad de periféricos, velocidad, memoria RAM y FLASH con los que cuentan estos microcontroladores, limita las funcionalidades y escalabilidad del código del data logger. Es por esto que la empresa busca migrar a microcontroladores de 32 bits, como el STM32F767ZI, que cuenta con una frecuencia máxima de 216 MHz, memoria FLASH de 2 Mbytes y memoria SRAM de 512 Kbytes. También, cuenta con interfaz MAC que permite utilizar integrados PHY para Ethernet.   
 
-En lo que respecta al presente trabajo, se propone diseñar una solución basada en el mencionado microcontrolador, que sea capaz de comunicarse con sensores utilizando el protocolo de comunicación SDI-12, con una memoria FLASH y memoria SD y que pueda transmitir la información por medio de protocolos de capa 2 como el PPP y ethernet.
+En lo que respecta al presente trabajo, se propone diseñar una solución basada en el mencionado microcontrolador, que sea capaz de comunicarse con sensores utilizando el protocolo de comunicación SDI-12, con una memoria FLASH y memoria SD y que pueda transmitir la información por medio de protocolos de capa 2 como el PPP y Ethernet.
 
-En la figura 1 se muestra el diagrama en bloques del sistema. El microcontrolador se encarga de comunicarse con distintos periféricos, como la memoria SD, memoria Flash, ADC, etc. Además de poder comunicarse con dichos componentes, debe de ser capaz de actuar como cliente FTP y HTTP.
+En la figura 1 se muestra el diagrama en bloques del sistema. El microcontrolador se encarga de comunicarse con distintos periféricos, como la memoria SD, memoria Flash, ADC, etc. Además de poder comunicarse con dichos componentes, debe de ser capaz de actuar como cliente FTP.
 
 %\vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.9\textwidth]{./Figuras/diagramaDeConexion.jpeg}
+\includegraphics[width=.9\textwidth]{./Figuras/Diagrama_de_bloques_modulos.jpg}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
@@ -172,8 +167,8 @@ El propósito de este proyecto es diseñar e implementar el prototipo de un data
 El proyecto incluye los siguientes puntos:
 \begin{itemize}
 \item Diseño, programación e implementación de un sistema embebido que sea capaz de comunicarse con distintos sensores, procesar los datos, guardar y transmitirlos por internet.
-\item Diseño de una biblioteca modular en C++, que permita comunicarse con sensores que utilizan el protocolo SDI-12.
-\item Diseño de una biblioteca modular en C++, que permita comunicarse con memorias de tipo FLASH.
+\item Diseño de una biblioteca modular en C, que permita comunicarse con sensores que utilizan el protocolo SDI-12.
+\item Diseño de una biblioteca modular en C, que permita comunicarse con memorias de tipo FLASH.
 \item Diseño de la arquitectura del sistema embebido.
 \item Prototipo en protoboard del sistema embebido.
 \item Diseño de la placa de circuito impreso.
@@ -185,7 +180,7 @@ Queda excluido del alcance del proyecto:
 \item Desarrollo de un cargador solar.
 \item Diseño de un RTOS.
 \item Diseño de un stack TCP/IP.
-\item Testeo de mas de una semana del sistema.
+\item Testeo de más de una semana del sistema.
 \item Testeo de rangos de temperatura y humedad mínimos y máximos.
 \end{itemize}
 
@@ -197,13 +192,13 @@ Queda excluido del alcance del proyecto:
 Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
-	\item Se contara con una placa NUCLEO-F767ZI.
+	\item Se contará con una placa NUCLEO-F767ZI.
 	\item Se podrá contar con los insumos necesarios en tiempo y forma.
-	\item Se contara con las instalaciones disponibles para las pruebas pertinentes.
+	\item Se contará con las instalaciones disponibles para las pruebas pertinentes.
 	\item Se dispondrá del tiempo necesario para el desarrollo del proyecto.
-	\item Se contara con sensores meteorológicos para realizar las mediciones.
-	\item Se contara con módem cellular para conexiones GPRS/GSM.
-	\item Se cuenta con toda la información técnica de sensores meteorológicos, modems celulares, microcontroladores, ethernet, etc.
+	\item Se contará con sensores meteorológicos para realizar las mediciones.
+	\item Se contará con un módem celular para conexiones GPRS/GSM.
+	\item Se cuenta con toda la información técnica de sensores meteorológicos, módem, microcontroladores, Ethernet, etc.
 \end{itemize}
 
 \section{6. Requerimientos}
@@ -214,32 +209,32 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item El proyecto sera desarrollado y mantenido mediante el control de versiones GIT. 
 			\item El proyecto sera desarrollado en lenguaje C, compilado con ARM GCC.
-			\item Se debera de desarrollar libreria de control del conversor analogico digital.
-			\item Se debera de desarrollar libreria de control de la memoria FLASH. 
-			\item Se debera de desarrollar libreria del protocolo SDI-12.
+			\item Se deberá de desarrollar biblioteca de control del conversor analógico digital.
+			\item Se deberá de desarrollar biblioteca de control de la memoria FLASH. 
+			\item Se deberá de desarrollar biblioteca del protocolo SDI-12.
 		\end{enumerate}
 	\item Requerimientos de documentación.
 		\begin{enumerate}
-			\item El ccodigo sera documentado con la herramienta Doxygen.
-			\item El ciclo de vida del proyecto sera respaldado por una memoria tecnica.
+			\item El código será documentado con la herramienta Doxygen.
+			\item El ciclo de vida del proyecto sera respaldado por una memoria técnica.
+			\item Se entregaran informes de avance.
 		\end{enumerate}
 	\item Requerimientos asociados con la arquitectura del sistema.
 		\begin{enumerate}
-		\item El data logger se debe de basar en el STM32F767ZI.
-		\item El STM32F767ZI se debe de comunicar con una memoria FLASH por medio del protocolo SPI.
-		\item El STM32F767ZI se debe de comunicar con una memoria SD, por medio del protocolo SPI.
-		\item El STM32F767ZI se debe de comunicar con un conversor analogico digital, por medio del protocolo I2C.
-		\item El sistema debe de contar con los converores de voltaje para el protocolo SDI-12.
+		\item El data logger se debe basar en el STM32F767ZI.
+		\item El STM32F767ZI se debe comunicar con una memoria FLASH por medio del protocolo SPI.
+		\item El STM32F767ZI se debe comunicar con una memoria SD, por medio del protocolo SPI.
+		\item El STM32F767ZI se debe comunicar con un conversor analógico digital, por medio del protocolo I2C.
 		\end{enumerate}
 	\item Requerimientos de la interfaz.
 		\begin{enumerate}
-		\item El sistema debe de contar con proteccion contra cortocircuitos, sobre voltaje y bajo voltaje. 
-		\item El sistema debe de funcionar con un rango de tension entre 7V y 24 VDC.
-		\item El sistema debe de contar con dos puertos RS-232.
-		\item El sistema debe de contar con un puerto Ethernet.
-		\item El sistema debe de contar con una interfaz SD.
-		\item El sistema debe de contar con un puerto micro USB.
-		\item El sistema debe de contar con borneras para conexion con los sensores.
+		\item El sistema debe contar con protección contra cortocircuitos, sobre voltaje y bajo voltaje. 
+		\item El sistema debe funcionar con un rango de tension entre 7V y 24 VDC.
+		\item El sistema debe contar con dos puertos RS-232.
+		\item El sistema debe contar con un puerto Ethernet.
+		\item El sistema debe contar con una interfaz SD.
+		\item El sistema debe contar con un puerto micro USB.
+		\item El sistema debe contar con borneras para conexión con los sensores.
 		\end{enumerate}
 \end{enumerate}
 
@@ -249,33 +244,63 @@ Para el desarrollo del presente proyecto se supone que:
 
 Roles: 
 \begin{itemize}
-	\item Usuario/a - Persona o entidad donde la informacion proveniente de la estacion sera destinada, 
-	\item Instalador/a - Es la persona encargada de la puesta en marcha de la estacion, 
-	\item Cliente - Es la persona que auspiciara el proyecto de la estacion
+	\item Usuario/a - Persona que hará uso de la información proveniente de la estación.
+	\item Instalador/a - Es la persona encargada del ensamblaje y puesta en marcha de la estación de Tech Enterprise S.A. A su cargo se encuentra el diseño y ensamblado de la estación para el usuario, esto es, elegir los sensores en función a las necesidades del usuario, tipo de alimentación, forma de conexión con la red, etc.   
+	\item Cliente - Es la persona que auspiciara el proyecto de la estación.
 \end{itemize}
 
-Ponderacion:
+Ponderación:
 	\begin{itemize}
-		\item Este puntaje esta dado por la relevancia que tiene la historia de usuario para el exito del proyecto definido en esta planificacion.
-		\item Se utilizara una escala de prioridad de 1, 2, y 4 puntos para las historias
+		\item Este puntaje esta dado por la relevancia que tiene la historia de usuario para el éxito del proyecto definido en esta planificación.
+		\item Se utilizará una escala de prioridad de 1, 2, y 4 puntos para las historias.
+		\begin{itemize}
+			\item Dificultad/tiempo.
+			\item Complejidad
+			\item Incertidumbre/Riesgo.
+
+		\end{itemize}
 	\end{itemize}
-
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
-
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
+Historias de usuario:
+	\begin{itemize}
+	\item Como ingeniero agrónomo, quiero poder utilizar los sensores que utilicen el protocolo SDI-12.
+		\begin{itemize}
+			\item Dificultad/tiempo: 2.
+			\item Complejidad: 2.
+			\item Incertidumbre/Riesgo: 1.
+			\item Total: 5 pts.
+		\end{itemize}
+	\item Como instalador, deseo poder actualizar el software de la estación de forma remota, subiendo el archivo binario al servidor FTP (4p).
+		\begin{itemize}
+			\item Dificultad/tiempo: 4.
+			\item Complejidad: 4.
+			\item Incertidumbre/Riesgo: 4.
+			\item Total: 12 pts.
+		\end{itemize}
+	\item Como meteorólogo, quiero poder recibir la información en un archivo .txt (4p).
+		\begin{itemize}
+			\item Dificultad/tiempo: 1.
+			\item Complejidad: 1.
+			\item Incertidumbre/Riesgo: 1.
+			\item Total: 3 pts.
+		\end{itemize}
+	\item Como project mánager deseo poder utilizar el protocolo Ethernet para realizar conexiones a internet. 
+		\begin{itemize}
+			\item Dificultad/tiempo: 2.
+			\item Complejidad: 4.
+			\item Incertidumbre/Riesgo: 1.
+			\item Total: 7 pts.
+		\end{itemize}
+	\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
 \begin{itemize}
 	\item Informe final.
-	\item Manual de configuracion y puesta en marcha.
+	\item Manual de configuración y puesta en marcha.
 	\item Diagrama de circuitos esquemáticos.
 	\item Código fuente del firmware.
+	\item Informe de avance. 
 \end{itemize}
 
 
@@ -283,40 +308,54 @@ Se debe indicar explícitamente el criterio para calcular los \textit{story poin
 \label{sec:wbs}
 
 \begin{enumerate}
-\item Planificacion del proyecto (40hs)
+\item Planificación del proyecto (40hs)
 	\begin{enumerate}
 	\item Realizar el plan de proyecto (20 hs).
-	\item Redectar requisitos del firmware (20 hs).
+	\item Redactar requisitos del firmware (20 hs).
 	\end{enumerate}
-\item Investigacion preliminar (30 hs)
+\item Investigación preliminar (40 hs)
 	\begin{enumerate}
-	\item Investigar caracteristicas tecnicas de cada uno de los componentes a utilizar (10 hs)
-	\item Investigar librerias TCP/IP (10 hs).
-	\item Investigar sobre sistemas operativos de tiempo real (10 hs).
+	\item Investigar características técnicas de cada uno de los componentes a utilizar (16 hs).
+	\item Investigar librerías TCP/IP (12 hs).
+	\item Investigar sobre sistemas operativos de tiempo real (12 hs).
 	\end{enumerate}
-\item Desarrollo de firmware (200 hs)
+\item Desarrollo de firmware (300 hs)
 	\begin{enumerate}
-	\item Configuracion inicial del microcontrolador y sus distintos perifericos. 
-	\item Disenar algoritmo de configuracion de la estacion (30 hs).
-	\item Disenar libreria para control de memoria FLASH (40 hs).
-	\item Integrar liberia para control de memoria SD (10 hs).
-	\item Disenar libreria para comunicacion por medio del protocolo SDI-12 (40 hs).
-	\item Disenar libreria para control del conversor analogico digital (40 hs).
-	\item Disenar liberia para cliente FTP (40 hs).
-	\item Integracion de las distintas librerias (40 hs).
+	\item Configuración inicial del microcontrolador y sus distintos periféricos (20 hs). 
+	\item Diseñar algoritmo de configuración de la estación (30 hs).
+	\item Diseñar biblioteca para control de memoria FLASH (40 hs).
+	\item Integrar biblioteca para control de memoria SD (10 hs).
+	\item Diseñar biblioteca para comunicación por medio del protocolo SDI-12 (40 hs).
+	\item Diseñar biblioteca para control del conversor analógico digital (40 hs).
+	\item Diseñar biblioteca para cliente FTP (40 hs).
+	\item Integración de las distintas bibliotecas (40 hs).
+	\item Diseñar máquina de estados finitos (40 hs).
 	\end{enumerate}
-\item Validacion y documentacion (X hs).
+\item Validación (80 hs).
 	\begin{enumerate}
-	\item Ejecutar esquema de pruebas (X hs).
+	\item Ejecutar esquema de pruebas de conexión PPP (20 hs).
+	\item Ejecutar esquema de pruebas de conexión Ethernet (20 hs).
+	\item Ejecutar esquema de pruebas de guardado en memoria SD (10 hs).
+	\item Ejecutar esquema de pruebas de protocolo SDI-12 (5 hs).
+	\item Ejecutar esquema de pruebas de cliente FTP (25 hs).
+
+	\end{enumerate}
+\item Documentacion (30 hs).
+	\begin{enumerate}
+	\item Documentación HTML con Doxygen (5 hs).
+	\item Redacción de informes de avance (25 hs).
 	
 	\end{enumerate}
-\item Elaboracion de presentacion final (X hs).
+\item Elaboración final (110 hs).
 	\begin{enumerate}
-	\item Redaccion del manuscripto fianl ( hs).
+	\item Redacción del manuscrito final (40 hs).
+	\item Elaboración de la memoria técnica (40 hs).
+	\item Preparación de la exposición del trabajo final (20 hs).	
+	\item Ensayo de la exposición (10 hs).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
+Cantidad total de horas: (600 hs).
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
@@ -401,18 +440,6 @@ En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realiza
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-\end{consigna}
-
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
@@ -420,28 +447,49 @@ IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
-Descripción &
+Descripción & 
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+Mano de obra &
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{\$ 5} &
+  \multicolumn{1}{c|}{\$ 3000} \\ \hline
+
+Placa Nucleo &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 60} &
+  \multicolumn{1}{c|}{\$ 60} \\ \hline
+Modem celular &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 90} &
+  \multicolumn{1}{c|}{\$ 90} \\ \hline
+Memoria SD &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 15} &
+  \multicolumn{1}{c|}{\$ 15} \\ \hline
+Memoria Flash &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 5} &
+  \multicolumn{1}{c|}{\$ 5} \\ \hline
+Conversor analogico digital &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 20} &
+  \multicolumn{1}{c|}{\$ 20} \\ \hline
+Sensor de suelo &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 200} &
+  \multicolumn{1}{c|}{\$ 200} \\ \hline
+Sensor de suelo &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 200} &
+  \multicolumn{1}{c|}{\$ 200} \\ \hline
+Sensor de corriente &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 24} &
+  \multicolumn{1}{c|}{\$ 24} \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL} & 
+  \multicolumn{1}{c|}{\$ 3614} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -449,22 +497,14 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+\multicolumn{1}{|l|}{ Insumos varios} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$ 3000} &
+  \multicolumn{1}{c|}{\$ 3000} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$ 3000} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
+\multicolumn{3}{|c|}{TOTAL} & \$ 6614
    \\ \hline
 \end{tabularx}%
 \end{table}
@@ -473,21 +513,19 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
 
-Riesgo 2:
+a) Identificación de los riesgos y estimación de sus consecuencias:
+ 
+Riesgo 1: La placa nucleo-F767ZI deja de funcionar.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (S): 8\\
+	La severidad es moderada/alta, debido a que si la placa deja de funcionar demoraría en el inicio de la implementación del firmware.
+	\item Probabilidad de ocurrencia (2): La probabilidad es baja, ademas se cuenta con una placa de repuesto. 
+\end{itemize}   
+Riesgo 2: No se cuenta con un modem celular: 
+\begin{itemize}
+	\item Severidad (S): 5 
+	\item Ocurrencia (O): 2
 \end{itemize}
 
 Riesgo 3:
@@ -531,7 +569,6 @@ Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
  
 Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
 
-\end{consigna}
 
 
 \section{14. Gestión de la calidad}
