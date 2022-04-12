@@ -316,7 +316,7 @@ Historias de usuario:
 \item Investigación preliminar (40 hs)
 	\begin{enumerate}
 	\item Investigar características técnicas de cada uno de los componentes a utilizar (16 hs).
-	\item Investigar librerías TCP/IP (12 hs).
+	\item Investigar bibliotecas TCP/IP (12 hs).
 	\item Investigar sobre sistemas operativos de tiempo real (12 hs).
 	\end{enumerate}
 \item Desarrollo de firmware (300 hs)
@@ -340,7 +340,7 @@ Historias de usuario:
 	\item Ejecutar esquema de pruebas de cliente FTP (25 hs).
 
 	\end{enumerate}
-\item Documentacion (30 hs).
+\item Documentación (30 hs).
 	\begin{enumerate}
 	\item Documentación HTML con Doxygen (5 hs).
 	\item Redacción de informes de avance (25 hs).
@@ -360,27 +360,13 @@ Cantidad total de horas: (600 hs).
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior. 
-
-%La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
-
-%\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
-
-\end{consigna}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=1.35\textwidth]{./Figuras/diagramaAoN.jpg}
 \caption{Diagrama en \textit{Activity on Node}}
 \label{fig:AoN}
 \end{figure}
-
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
-
-
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
@@ -520,12 +506,13 @@ Riesgo 1: La placa nucleo-F767ZI deja de funcionar.
 \begin{itemize}
 	\item Severidad (S): 8\\
 	La severidad es moderada/alta, debido a que si la placa deja de funcionar demoraría en el inicio de la implementación del firmware.
-	\item Probabilidad de ocurrencia (2): La probabilidad es baja, ademas se cuenta con una placa de repuesto. 
+	\item Ocurrencia (0): 2\\
+	 La probabilidad es baja, ademas se cuenta con una placa de repuesto. 
 \end{itemize}   
-Riesgo 2: No se cuenta con un modem celular: 
+Riesgo 2: No se cuenta con un módem celular. 
 \begin{itemize}
 	\item Severidad (S): 5 \\
-	La severidad es moderada, debido a que se requiere a un modem celular para poder desarrollar la implementacion de los modulos dependientes de este.
+	La severidad es moderada, debido a que se requiere a un módem celular para poder desarrollar la implementación de los módulos dependientes de este.
 	\item Ocurrencia (O): 1 \\
 	La probabilidad es baja, debido a que se cuenta con disponibilidad del modem.
 \end{itemize}
@@ -533,25 +520,25 @@ Riesgo 2: No se cuenta con un modem celular:
 Riesgo 3: Imposibilidad de cumplir los plazos planteados.
 \begin{itemize}
 	\item Severidad (S): 7 \\
-	La severidad es moderada, algunos requisitos podrian requerir tiempos mas amplios de implementacion que los presentados en el proyecto.
+	La severidad es moderada, algunos requisitos podrían requerir tiempos mas amplios de implementación que los presentados en el proyecto.
 	\item Ocurrencia (O): 4 \\
-	La probabilidad es moderada/baja, debido a que existen conocimientos necesarios a adquirir.
+	La probabilidad es moderada/baja, debido a que existe una planificación de previa.
 \end{itemize}
 
-Riesgo 4: Escacez del hardware en el mercado.
+Riesgo 4: Escasez del hardware en el mercado.
 \begin{itemize}
-	\item Severidad (S):  \\
-	La severidad es alta, esto seria un impedimento para el desarrollo de distintos modulos del proyecto.
+	\item Severidad (S): 8 \\
+	La severidad es alta, esto seria un impedimento para el desarrollo de distintos módulos del proyecto.
 	\item Ocurrencia (O): 4 \\
 	La probabilidad es moderada/baja, debido a que el hardware seleccionado es accesible en el mercado.
 \end{itemize}
 
-Riesgo 5: Conexion al internet es de baja calidad.
+Riesgo 5: Conexión al internet es de baja calidad.
 \begin{itemize}
 	\item Severidad (S): 6 \\
 	La severidad es moderada, debido a que es un requerimiento principal del sistema.
 	\item Ocurrencia (O): 4 \\
-	La probabilidad es moderada/baja, debido a que existen conocimientos necesarios a adquirir.
+	La probabilidad es moderada/baja, debido a que el stack a utilizar esta bien establecido.
 \end{itemize}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
@@ -562,36 +549,74 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+La placa nucleo-F767ZI deja de funcionar       &  8 &  2 &  16   &    &    &      \\ \hline
+No se cuenta con un modem celular       & 5  & 1  &  5   &    &    &      \\ \hline
+Imposibilidad de cumplir los plazos planteados       &  7 & 4  &  28   &  6  & 3    &   18   \\ \hline
+Escasez del hardware en el mercado       &  8 & 4  &  32  &  7  & 2   &  14    \\ \hline
+Conexión al internet es de baja calidad       & 6  & 4  &  24   &  5  &  2  &     10 \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 20
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+Riesgo 3: Imposibilidad de cumplir los plazos planteados
+\begin{itemize}
+	\item Plan de mitigación: Re asignación de horas atrasadas y rigurosidad con el cumplimiento.
+	\item Severidad (6): La severidad es moderada, algunos requisitos podrían requerir tiempos mas amplios de implementación que los presentados en el proyecto.
+	\item Ocurrencia (3): La probabilidad es baja, debido a que existe una planificación de previa, y rigurosidad con el cumplimiento de estas.
+\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+Riesgo 4: Escasez del hardware en el mercado
+\begin{itemize}
+	\item Plan de mitigación: Compra de componentes lo antes posible.
+	\item Severidad (7): La severidad es moderada, esto seria un impedimento para el desarrollo de distintos módulos del proyecto.
+	\item Ocurrencia (2): La probabilidad es baja, debido a que el hardware seleccionado es accesible en el mercado y se comprara con anticipación a los componentes necesarios.
+\end{itemize}
+
+Riesgo 5: Conexión al internet es de baja calidad
+\begin{itemize}
+	\item Plan de mitigación: Se realizaran los estudios correspondientes con antelación para la correcta configuración del stack.
+	\item Severidad (5): La severidad es moderada, debido a que es un requerimiento principal del sistema.
+	\item Ocurrencia (2): La probabilidad es baja, debido a que el stack a utilizar esta bien establecido y se estudiará con tiempo la documentación.
+\end{itemize}
 
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
+\begin{itemize}
+\item Requerimiento 1.1: 
+	\begin{itemize}
+		\item Verificación:
+		\item Validación:
+	\end{itemize}
+\item Requerimiento 1.2: 
+	\begin{itemize}
+		\item Verificación:
+		\item Validación:
+	\end{itemize}
+\item Requerimiento 1.3: 
+	\begin{itemize}
+		\item Verificación:
+		\item Validación:
+	\end{itemize}
+\item Requerimiento 1.4: 
+	\begin{itemize}
+		\item Verificación:
+		\item Validación:
+	\end{itemize}
+\item Requerimiento 1.5: 
+	\begin{itemize}
+		\item Verificación:
+		\item Validación:
+	\end{itemize}
+\end{itemize}
+
 
 \begin{consigna}{red}
 Para cada uno de los requerimientos del proyecto indique:
@@ -612,19 +637,29 @@ Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
 
 \begin{itemize}
 	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
+		\begin{itemize}
+	 		\item Responsable: Renato Barresi.
+	 		\item Actividad: Se compararán los tiempos de ejecución con los planificados.\\
+		\end{itemize}	  
 	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
+		\begin{itemize}
+	 		\item Responsable: Renato Barresi.
+	 		\item Actividad:\\
+	 			\begin{itemize}
+	 				\item Se evaluará a los diferentes procedimientos y técnicas utilizadas para evaluar el impacto en el proyecto.
+	 				\item Se documentarán los problemas encontrados con sus respectivas soluciones.
+	 			\end{itemize}
+		\end{itemize}	  
 	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
-	  - Indicar esto y quién financiará los gastos correspondientes.
+		\begin{itemize}
+	 		\item Responsable: Renato Barresi.
+	 		\item Actividad: Al finalizar el proyecto y la presentación publica, se procederá a agradecer a todas las personas que formaron parte del desarrollo del proyecto, docentes, jurados, compañeros y autoridades de la carrera.\\
+		\end{itemize}	  
 \end{itemize}
 
-\end{consigna}
 
 
 \end{document}
