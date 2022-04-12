@@ -38,9 +38,9 @@
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{01 de marzo de 2022}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaINICIO{04 de abril de 2022}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{19 de abril de 2022} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{10 de diciembre de 2022}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -71,6 +71,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                 & 15/03/2022 \\ \hline
 2      & Se completa hasta el punto 9 inclusive y agregan correcciones & 27/03/2022\\ \hline
+3 & Se agregan correcciones, diagrama Activity on Node, diagrama de Gantt y completan secciones restantes & 10/04/2022 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -87,7 +88,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de computador que hará de interfaz con sensores meteorológicos y el internet, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$ 1000 US, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de computador que hará de interfaz con sensores meteorológicos y el internet, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$ 6414 US, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -371,57 +372,26 @@ Cantidad total de horas: (600 hs).
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
+Para el diagrama de Gantt se considero una dedicación parcial promedio de 2 hs durante los días hábiles, y 3 hs durante los fines de semana y feriados.
 
-Existen muchos programas y recursos \textit{online} para hacer diagramas de gantt, entre los cuales destacamos:
-
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-\begin{figure}[htbp]
-\begin{center}
-\begin{ganttchart}{1}{12}
-  \gantttitle{2020}{12} \\
-  \gantttitlelist{1,...,12}{1} \\
-  \ganttgroup{Group 1}{1}{7} \\
-  \ganttbar{Task 1}{1}{2} \\
-  \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-  \ganttmilestone{Milestone o hito}{7} \ganttnewline
-  \ganttbar{Final Task}{8}{12}
-  \ganttlink{elem2}{elem3}
-  \ganttlink{elem3}{elem4}
-\end{ganttchart}
-\end{center}
-\caption{Diagrama de gantt de ejemplo}
-\label{fig:gantt}
+\begin{figure}[htpb]
+\centering 
+\includegraphics[height=.6\textheight]{./Figuras/fechas2.jpg}
+\caption{Diagrama de Gantt: tabla}
+\label{fig:diagGantt}
 \end{figure}
 
 
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt rotado}
+\includegraphics[height=1.1\textheight]{./Figuras/Tesis_Fiuba_CESEGantt.pdf}
+\caption{Diagrama de Gantt: gráfico}
 \label{fig:diagGantt}
 \end{figure}
 
 \end{landscape}
 
-\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
@@ -508,7 +478,7 @@ Riesgo 1: La placa nucleo-F767ZI deja de funcionar.
 Riesgo 2: No se cuenta con un módem celular. 
 \begin{itemize}
 	\item Severidad (S): 5 \\
-	La severidad es moderada, debido a que se requiere a un módem celular para poder desarrollar la implementación de los módulos dependientes de este.
+	La severidad es moderada, debido a que se requiere un módem celular para desarrollar la implementación de los módulos dependientes de este.
 	\item Ocurrencia (O): 1 \\
 	La probabilidad es baja, debido a que se cuenta con disponibilidad del modem.
 \end{itemize}
@@ -529,10 +499,10 @@ Riesgo 4: Escasez del hardware en el mercado.
 	La probabilidad es moderada/baja, debido a que el hardware seleccionado es accesible en el mercado.
 \end{itemize}
 
-Riesgo 5: Conexión al internet es de baja calidad.
+Riesgo 5: Conexión del data logger al internet es de baja calidad.
 \begin{itemize}
 	\item Severidad (S): 6 \\
-	La severidad es moderada, debido a que es un requerimiento principal del sistema.
+	La severidad es moderada, debido a que una conexión estable es un requerimiento principal para el funcionamiento eficiente del sistema.
 	\item Ocurrencia (O): 4 \\
 	La probabilidad es moderada/baja, debido a que el stack a utilizar esta bien establecido.
 \end{itemize}
@@ -549,7 +519,7 @@ La placa nucleo-F767ZI deja de funcionar       &  8 &  2 &  16   &    &    &    
 No se cuenta con un modem celular       & 5  & 1  &  5   &    &    &      \\ \hline
 Imposibilidad de cumplir los plazos planteados       &  7 & 4  &  28   &  6  & 3    &   18   \\ \hline
 Escasez del hardware en el mercado       &  8 & 4  &  32  &  7  & 2   &  14    \\ \hline
-Conexión al internet es de baja calidad       & 6  & 4  &  24   &  5  &  2  &     10 \\ \hline
+Conexión del data logger al internet es de baja calidad.       & 6  & 4  &  24   &  5  &  2  &     10 \\ \hline
 \end{tabularx}%
 \end{table}
 
@@ -560,21 +530,21 @@ Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplic
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 3: Imposibilidad de cumplir los plazos planteados
+Riesgo 3: Imposibilidad de cumplir los plazos planteados.
 \begin{itemize}
 	\item Plan de mitigación: Re asignación de horas atrasadas y rigurosidad con el cumplimiento.
 	\item Severidad (6): La severidad es moderada, algunos requisitos podrían requerir tiempos mas amplios de implementación que los presentados en el proyecto.
 	\item Ocurrencia (3): La probabilidad es baja, debido a que existe una planificación de previa, y rigurosidad con el cumplimiento de estas.
 \end{itemize}
 
-Riesgo 4: Escasez del hardware en el mercado
+Riesgo 4: Escasez del hardware en el mercado.
 \begin{itemize}
 	\item Plan de mitigación: Compra de componentes lo antes posible.
 	\item Severidad (7): La severidad es moderada, esto seria un impedimento para el desarrollo de distintos módulos del proyecto.
 	\item Ocurrencia (2): La probabilidad es baja, debido a que el hardware seleccionado es accesible en el mercado y se comprara con anticipación a los componentes necesarios.
 \end{itemize}
 
-Riesgo 5: Conexión al internet es de baja calidad
+Riesgo 5: Conexión del data logger al internet es de baja calidad.
 \begin{itemize}
 	\item Plan de mitigación: Se realizaran los estudios correspondientes con antelación para la correcta configuración del stack.
 	\item Severidad (5): La severidad es moderada, debido a que es un requerimiento principal del sistema.
@@ -586,75 +556,75 @@ Riesgo 5: Conexión al internet es de baja calidad
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 \begin{itemize}
-\item Requerimiento 1.1: Se deberá de poder denir la fecha y horario del sistema, utilizando el RTC.
+\item Requerimiento 1.1: Se deberá poder definir la fecha y horario del sistema, utilizando el RTC.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra configurar al RTC.
-		\item Validación: Se leera el horario del RTC.
+		\item Verificación: Se implementará un menú de configuración donde el usuario podra configurar al RTC.
+		\item Validación: Se leerá el horario del RTC.
 	\end{itemize}
-\item Requerimiento 1.2: Se deberá de poder denir el periodo de transmisión de los archivos al servidor.
+\item Requerimiento 1.2: Se deberá poder definir el periodo de transmisión de los archivos al servidor.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el periodo de transmision.
-		\item Validación: Se verificara si la transmision se realiza en el periodo establecido.
+		\item Verificación: Se implementará un menú de configuración donde el usuario podra definir el periodo de transmisión.
+		\item Validación: Se verificará si la transmisión se realiza en el periodo establecido.
 	\end{itemize}
-\item Requerimiento 1.3: Se deberá de poder denir el periodo de la toma de muestras de los sensores.
+\item Requerimiento 1.3: Se deberá poder definir el periodo de la toma de muestras de los sensores.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el periodo de muestreo de los sensores.
-		\item Validación: La comunicacion con los sensores debe de ser la que el usuario definio.
+		\item Verificación: Se implementará un menú de configuración donde el usuario podrá definir el periodo de muestreo de los sensores.
+		\item Validación: La comunicación con los sensores debe de ser la que el usuario definió.
 	\end{itemize}
-\item Requerimiento 1.4: Se deberá de poder defir el nombre particular de la estación.
+\item Requerimiento 1.4: Se deberá poder definir el nombre particular de la estación.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el nombre de la estacion.
-		\item Validación: El nombre de los archivos enviados al servidor deben de contener el nombre definido por el usuario.
+		\item Verificación: Se implementará un menú de configuración donde el usuario podra definir el nombre de la estación.
+		\item Validación: Se verificará que el nombre de los archivos enviados al servidor contengan al nombre definido por el usuario.
 	\end{itemize}
-\item Requerimiento 1.5: Se deberá de poder seleccionar los sensores conectados.
+\item Requerimiento 1.5: Sera posible poder seleccionar los sensores conectados.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir que sensores estan conectados al data logger.
-		\item Validación: El data logger debera de comunicarse con los sensores seleccionados por el usuario.
+		\item Verificación: Se implementará un menú de configuración donde el usuario podra definir que sensores están conectados al data logger.
+		\item Validación: El data logger deberá de comunicarse con los sensores seleccionados por el usuario.
 	\end{itemize}
-\item Requerimiento 1.6: Se podrá denir el tipo de conexión para la red.
+\item Requerimiento 1.6: Se podrá definir el tipo de conexión a la red.
 	\begin{itemize}
-		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir que tipo de conexion de red cuenta el data logger.
-		\item Validación: La conexion a internet debe de darse por medio de la conexion definida por el usuario. 
+		\item Verificación: Se implementará un menú de configuración donde el usuario podra definir que tipo de conexión de red cuenta el data logger.
+		\item Validación: La conexión a internet debe de darse por medio de la conexion definida por el usuario. 
 	\end{itemize}
-\item Requerimiento 2.1: El software deberá de poder comunicarse con sensores que utilicen el protocolo SDI-12.
+\item Requerimiento 2.1: El software deberá poder comunicarse con sensores que utilicen el protocolo SDI-12.
 	\begin{itemize}
-		\item Verificación: Se implementara una biblioteca para el manejo de comunicaciones por el protocolo SDI-12
-		\item Validación: El data logger debera de ser capaz de obtener datos de un sensor SDI-12.
+		\item Verificación: Se implementará una biblioteca para el manejo de comunicaciones por el protocolo SDI-12
+		\item Validación: El data logger deberá de ser capaz de obtener datos de un sensor SDI-12.
 	\end{itemize}
-\item Requerimiento 2.2: El software deberá de poder adquirir datos de sensores analógicos.
+\item Requerimiento 2.2: El software deberá poder adquirir datos de sensores analógicos.
 	\begin{itemize}
-		\item Verificación: Se implementara una biblioteca para el manejo de comunicacion con el ADS1115 por medio del protocolo I2C.
-		\item Validación: El microcontrolador debera de ser capaz de comunicarse con el ADS1115 y obtener datos de un sensor de corriente.
+		\item Verificación: Se implementará una biblioteca para el manejo de comunicacion con el ADS1115 por medio del protocolo I2C.
+		\item Validación: El microcontrolador deberá de ser capaz de comunicarse con el ADS1115 y obtener datos de un sensor de corriente.
 	\end{itemize}	
-\item Requerimiento 2.3: El sofware deberá de poder poner al microcontrolador entrar en modo de bajo consumo.
+\item Requerimiento 2.3: El software deberá de poner al microcontrolador en modo de bajo consumo.
 	\begin{itemize}
-		\item Verificación: Se implementara un modulo que permita entrar y salir al microcontrolador de modo de bajo consumo. 
-		\item Validación: Luego de realizar la transmision al servidor, el microcontrolador debe de entrar en modo de bajo consumo.
+		\item Verificación: Se implementará un modulo que permita entrar y salir al microcontrolador de modo de bajo consumo. 
+		\item Validación: Luego de realizar la transmisión al servidor, el microcontrolador debe de entrar en modo de bajo consumo.
 	\end{itemize}
 \item Requerimiento 3.1: El software podrá detectar si la memoria SD esta conectada o no.
 	\begin{itemize}
-		\item Verificación: Se implementara la logica de deteccion de la conexion con la memoria SD.
-		\item Validación: Se verificara si el software no realiza operaciones con la memoria SD si la memoria no esta conectada, y viceversa.
+		\item Verificación: Se implementará la lógica de detección de la conexión con la memoria SD.
+		\item Validación: Se verificará si el software no realiza operaciones con la memoria SD si la memoria no esta conectada, y viceversa.
 	\end{itemize}	
 \item Requerimiento 3.2: El software podrá escribir en la memoria SD archivos de tipo .txt
 	\begin{itemize}
-		\item Verificación: Se utilizara la biblioteca FatFS para la operacion con archivos de texto y el protocolo SPI para la comunicacion con la memoria SD. 
-		\item Validación: Se leera la informacion contenida en la memoria SD en una computadora personal.
+		\item Verificación: Se utilizara la biblioteca FatFS para la operación con archivos de texto y el protocolo SPI para la comunicación con la memoria SD. 
+		\item Validación: Se leerá la información contenida en la memoria SD en una computadora personal.
 	\end{itemize}
-\item Requerimiento 4.1: El software deberá de poder transmitir archivos de tipo .txt a un servidor FTP.
+\item Requerimiento 4.1: El software deberá poder transmitir archivos de tipo .txt a un servidor FTP.
 	\begin{itemize}
-		\item Verificación: Se implementara una biblioteca de cliente FTP.
-		\item Validación: Se verificara en el servidor FTP si el software escribio el archivo.
+		\item Verificación: Se implementará una biblioteca de cliente FTP.
+		\item Validación: Se verificará en el servidor FTP si el software escribió el archivo.
 	\end{itemize}
-\item Requerimiento 4.2: El software deberá de poder parsear archivos .txt guardados en un servidor FTP.
+\item Requerimiento 4.2: El software deberá poder parsear archivos .txt guardados en un servidor FTP.
 	\begin{itemize}
-		\item Verificación: Se implementara una funcion que podra descargar  archivos .txt del servidor FTP y parsear la informacion.
-		\item Validación: Se verificara que el microcontrolador actue en funcion a la informacion parseada.
+		\item Verificación: Se implementará una función que podrá descargar  archivos .txt del servidor FTP y parsear la información.
+		\item Validación: Se verificará que el microcontrolador actué en función a la información parseada.
 	\end{itemize}	
-\item Requerimiento 4.3: El software deberá de poder enviar mensajes de diagnostico a un servidor TCP.
+\item Requerimiento 4.3: El software deberá poder enviar mensajes de diagnostico a un servidor TCP.
 	\begin{itemize}
-		\item Verificación: Se implementara una biblioteca para el cliente TCP.
-		\item Validación: Se verificara que los mensajes TCP enviados por el software lleguen a un servidor TCP montado.
+		\item Verificación: Se implementará una biblioteca para el cliente TCP.
+		\item Validación: Se verificará que los mensajes TCP enviados por el software lleguen a un servidor TCP.
 	\end{itemize}			
 \end{itemize}
 
