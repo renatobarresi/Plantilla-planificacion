@@ -20,7 +20,7 @@
 \autor{Ing. Renato Barresi} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Esp. Ing. Pablo Zizzutti}
+\director{Esp. Lic. Pablo Zizzutti}
 \pertenenciaDirector{FIUBA} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
@@ -466,16 +466,12 @@ Sensor de suelo &
   \multicolumn{1}{c|}{1} &
   \multicolumn{1}{c|}{\$ 200} &
   \multicolumn{1}{c|}{\$ 200} \\ \hline
-Sensor de suelo &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 200} &
-  \multicolumn{1}{c|}{\$ 200} \\ \hline
 Sensor de corriente &
   \multicolumn{1}{c|}{1} &
   \multicolumn{1}{c|}{\$ 24} &
   \multicolumn{1}{c|}{\$ 24} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} & 
-  \multicolumn{1}{c|}{\$ 3614} \\ \hline
+  \multicolumn{1}{c|}{\$ 3414} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -490,7 +486,7 @@ Descripción &
 \multicolumn{3}{|c|}{SUBTOTAL} &
   \multicolumn{1}{c|}{\$ 3000} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} & \$ 6614
+\multicolumn{3}{|c|}{TOTAL} & \$ 6414
    \\ \hline
 \end{tabularx}%
 \end{table}
@@ -590,49 +586,77 @@ Riesgo 5: Conexión al internet es de baja calidad
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 \begin{itemize}
-\item Requerimiento 1.1: 
+\item Requerimiento 1.1: Se deberá de poder denir la fecha y horario del sistema, utilizando el RTC.
 	\begin{itemize}
-		\item Verificación:
-		\item Validación:
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra configurar al RTC.
+		\item Validación: Se leera el horario del RTC.
 	\end{itemize}
-\item Requerimiento 1.2: 
+\item Requerimiento 1.2: Se deberá de poder denir el periodo de transmisión de los archivos al servidor.
 	\begin{itemize}
-		\item Verificación:
-		\item Validación:
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el periodo de transmision.
+		\item Validación: Se verificara si la transmision se realiza en el periodo establecido.
 	\end{itemize}
-\item Requerimiento 1.3: 
+\item Requerimiento 1.3: Se deberá de poder denir el periodo de la toma de muestras de los sensores.
 	\begin{itemize}
-		\item Verificación:
-		\item Validación:
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el periodo de muestreo de los sensores.
+		\item Validación: La comunicacion con los sensores debe de ser la que el usuario definio.
 	\end{itemize}
-\item Requerimiento 1.4: 
+\item Requerimiento 1.4: Se deberá de poder defir el nombre particular de la estación.
 	\begin{itemize}
-		\item Verificación:
-		\item Validación:
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir el nombre de la estacion.
+		\item Validación: El nombre de los archivos enviados al servidor deben de contener el nombre definido por el usuario.
 	\end{itemize}
-\item Requerimiento 1.5: 
+\item Requerimiento 1.5: Se deberá de poder seleccionar los sensores conectados.
 	\begin{itemize}
-		\item Verificación:
-		\item Validación:
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir que sensores estan conectados al data logger.
+		\item Validación: El data logger debera de comunicarse con los sensores seleccionados por el usuario.
 	\end{itemize}
+\item Requerimiento 1.6: Se podrá denir el tipo de conexión para la red.
+	\begin{itemize}
+		\item Verificación: Se implementara un menu de configuracion donde el usuario podra definir que tipo de conexion de red cuenta el data logger.
+		\item Validación: La conexion a internet debe de darse por medio de la conexion definida por el usuario. 
+	\end{itemize}
+\item Requerimiento 2.1: El software deberá de poder comunicarse con sensores que utilicen el protocolo SDI-12.
+	\begin{itemize}
+		\item Verificación: Se implementara una biblioteca para el manejo de comunicaciones por el protocolo SDI-12
+		\item Validación: El data logger debera de ser capaz de obtener datos de un sensor SDI-12.
+	\end{itemize}
+\item Requerimiento 2.2: El software deberá de poder adquirir datos de sensores analógicos.
+	\begin{itemize}
+		\item Verificación: Se implementara una biblioteca para el manejo de comunicacion con el ADS1115 por medio del protocolo I2C.
+		\item Validación: El microcontrolador debera de ser capaz de comunicarse con el ADS1115 y obtener datos de un sensor de corriente.
+	\end{itemize}	
+\item Requerimiento 2.3: El sofware deberá de poder poner al microcontrolador entrar en modo de bajo consumo.
+	\begin{itemize}
+		\item Verificación: Se implementara un modulo que permita entrar y salir al microcontrolador de modo de bajo consumo. 
+		\item Validación: Luego de realizar la transmision al servidor, el microcontrolador debe de entrar en modo de bajo consumo.
+	\end{itemize}
+\item Requerimiento 3.1: El software podrá detectar si la memoria SD esta conectada o no.
+	\begin{itemize}
+		\item Verificación: Se implementara la logica de deteccion de la conexion con la memoria SD.
+		\item Validación: Se verificara si el software no realiza operaciones con la memoria SD si la memoria no esta conectada, y viceversa.
+	\end{itemize}	
+\item Requerimiento 3.2: El software podrá escribir en la memoria SD archivos de tipo .txt
+	\begin{itemize}
+		\item Verificación: Se utilizara la biblioteca FatFS para la operacion con archivos de texto y el protocolo SPI para la comunicacion con la memoria SD. 
+		\item Validación: Se leera la informacion contenida en la memoria SD en una computadora personal.
+	\end{itemize}
+\item Requerimiento 4.1: El software deberá de poder transmitir archivos de tipo .txt a un servidor FTP.
+	\begin{itemize}
+		\item Verificación: Se implementara una biblioteca de cliente FTP.
+		\item Validación: Se verificara en el servidor FTP si el software escribio el archivo.
+	\end{itemize}
+\item Requerimiento 4.2: El software deberá de poder parsear archivos .txt guardados en un servidor FTP.
+	\begin{itemize}
+		\item Verificación: Se implementara una funcion que podra descargar  archivos .txt del servidor FTP y parsear la informacion.
+		\item Validación: Se verificara que el microcontrolador actue en funcion a la informacion parseada.
+	\end{itemize}	
+\item Requerimiento 4.3: El software deberá de poder enviar mensajes de diagnostico a un servidor TCP.
+	\begin{itemize}
+		\item Verificación: Se implementara una biblioteca para el cliente TCP.
+		\item Validación: Se verificara que los mensajes TCP enviados por el software lleguen a un servidor TCP montado.
+	\end{itemize}			
 \end{itemize}
-
-
-\begin{consigna}{red}
-Para cada uno de los requerimientos del proyecto indique:
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento.
-
-\begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
-\end{itemize}
-
-\end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
@@ -647,7 +671,7 @@ Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos
 	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
 		\begin{itemize}
 	 		\item Responsable: Renato Barresi.
-	 		\item Actividad:\\
+	 		\item Actividad:
 	 			\begin{itemize}
 	 				\item Se evaluará a los diferentes procedimientos y técnicas utilizadas para evaluar el impacto en el proyecto.
 	 				\item Se documentarán los problemas encontrados con sus respectivas soluciones.
